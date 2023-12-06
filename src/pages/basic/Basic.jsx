@@ -1,20 +1,15 @@
 import { useEffect, useState } from "react";
 import "./basic.css";
-import Card from "../../components/basic/Card";
+import Card from "../../components/basic/card/Card";
+import Actions from "../../components/basic/actions/Actions";
+import { items } from "../../config/basic/options";
 
-const items = [
-    { src: "/img/item1.png" },
-    { src: "/img/item2.png" },
-    { src: "/img/item3.png" },
-    { src: "/img/item4.png" },
-    { src: "/img/item5.png" },
-    { src: "/img/item6.png" },
-];
 function Basic() {
     const [cards, setCards] = useState([]);
     const [choiceOne, setChoiceOne] = useState();
     const [choiceTwo, setChoiceTwo] = useState();
     const [turn, setTurn] = useState(0);
+    const [finished, setFinished] = useState(false);
 
     const shuffle = () => {
         const shuffledCards = [...items, ...items]
@@ -23,6 +18,8 @@ function Basic() {
                 return { ...card, id: Math.random(), mached: false };
             });
         setCards(shuffledCards);
+        setTurn(0);
+        setFinished(false);
     };
 
     const onChoose = (card) => {
@@ -46,31 +43,38 @@ function Basic() {
                             return oldCard;
                         }
                     });
+                    if (isFinished(newCards)) {
+                        setFinished(true);
+                    }
                     return newCards;
                 });
+                setupNewTurn();
             } else {
-                console.log("NO matches Pffffff!");
+                setTimeout(() => {
+                    setupNewTurn();
+                }, 1000);
             }
-            setupNewTurn();
         }
     }, [choiceOne, choiceTwo]);
 
     const setupNewTurn = () => {
-        setTimeout(() => {
-            console.log("timeout");
-            setChoiceOne(null);
-            setChoiceTwo(null);
-            setTurn((prevTurn) => prevTurn + 1);
-        }, 2000);
+        console.log("timeout");
+        setChoiceOne(null);
+        setChoiceTwo(null);
+        setTurn((prevTurn) => prevTurn + 1);
     };
-
+    const isFinished = (cards) => {
+        const unmatched = cards.filter((card) => !card.matched);
+        return unmatched.length === 0;
+    };
     return (
         <div className="basic">
             <h1>Magic Match</h1>
-            <button onClick={shuffle}>New Game</button>
+            <Actions shuffle={shuffle} />
             {cards.length > 0 && (
                 <>
-                    <h4>{`Trun : ${turn}`}</h4>
+                    {!finished && <h4>{`Trun : ${turn}`}</h4>}
+                    {finished && <h1>{`You finished in ${turn}`}</h1>}
                     <div className="card-table">
                         {cards.map((card) => (
                             <Card
@@ -80,7 +84,7 @@ function Basic() {
                                 flipped={
                                     card === choiceOne ||
                                     card === choiceTwo ||
-                                    card.mached
+                                    card.matched
                                 }
                             />
                         ))}
