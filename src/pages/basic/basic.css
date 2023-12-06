@@ -2,6 +2,7 @@
     max-width: 860px;
     margin: 40px auto;
 }
+
 .btn-basic {
     background: none;
     border: 2px solid #fff;
@@ -12,6 +13,7 @@
     cursor: pointer;
     font-size: 1em;
 }
+
 .btn-basic:hover {
     background: #c23866;
     color: #fff;
@@ -21,4 +23,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
+}
+
+.card-table.cols-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-table.cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-table.cols-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card-table.cols-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
