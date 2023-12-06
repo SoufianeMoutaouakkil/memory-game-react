@@ -1,10 +1,10 @@
 import './App.css'
+import Basic from './pages/basic/Basic';
 
 function App() {
   return (
     <div className="App">
-      <h1>Magic Match</h1>
-      <button>New Game</button>
+      <Basic />
     </div>
   );
 }
