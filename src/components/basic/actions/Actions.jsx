@@ -1,35 +1,30 @@
 import React, { useState } from "react";
-import { getOptions } from "../../../config/basic/options";
+import { getCardOptions, playerOptions } from "../../../config/basic";
+import Select from "./Select";
+import basicActions from "../../../services/state/basic/actions"
+import { useDispatch } from "react-redux";
 
-const Actions = ({ shuffle }) => {
+
+const Actions = () => {
     const [option, setOption] = useState("3X4");
-    const options = getOptions();
+    const [player, setPlayer] = useState(1);
+    const dispatch = useDispatch();
+    const cardOptions = getCardOptions();
+
+    const handleNewGame = () => {
+        let config = cardOptions.filter(
+            (opt) => opt.value === option
+        )[0];
+        dispatch(basicActions.newGame(config));
+    };
 
     return (
         <>
-            <select
-                className="btn-basic"
-                name="schema"
-                onChange={(e) => setOption(e.target.value)}
-            >
-                {options.map((opt) => (
-                    <option
-                        key={opt.value}
-                        value={opt.value}
-                        selected={option === opt.value}
-                    >
-                        {opt.label}
-                    </option>
-                ))}
-            </select>
+            <Select data={cardOptions} handler={[option, setOption]} />
+            <Select data={playerOptions} handler={[player, setPlayer]} />
             <button
                 className="btn-basic"
-                onClick={() => {
-                    let config = options.filter(
-                        (opt) => opt.value === option
-                    )[0];
-                    shuffle(config);
-                }}
+                onClick={handleNewGame}
             >
                 New Game
             </button>
