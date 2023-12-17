@@ -1,4 +1,4 @@
-export const items = [
+export const cadrList = [
     // { src: "/img/item1.png" },
     // { src: "/img/item2.png" },
     // { src: "/img/item3.png" },
@@ -15,16 +15,23 @@ export const items = [
     { src: "/img/concumber.jpg" },
 ];
 
+export const playerList = [
+    {"id": 1, name: "Player 1"},
+    {"id": 2, name: "Player 2"},
+    {"id": 3, name: "Player 3"},
+    {"id": 4, name: "Player 4"},
+];
+    
+
 export const playerOptions = [
     {"value": 1, label: "Single player"},
     {"value": 2, label: "Two player"},
-    {"value": 3, label: "Three player"},
 ];
 
 const cardOptions = [
-    { cols: 2, rows: 2 },
-    { cols: 4, rows: 3 },
-    { cols: 4, rows: 4 },
+    { cols: 2, rows: 3 },
+    { cols: 2, rows: 5 },
+    { cols: 3, rows: 3 },
 ];
 
 

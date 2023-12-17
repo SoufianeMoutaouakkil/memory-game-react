@@ -9,15 +9,11 @@ import basicActions from "../../services/state/basic/actions";
 import "./basic.css";
 
 function Basic() {
-    const { cards, config } = useSelector(state => state.basic);
+    const { cards, config, choiceOne, choiceTwo } = useSelector(state => state.basic);
     const dispatch = useDispatch();
 
-    const [choiceOne, setChoiceOne] = useState();
-    const [choiceTwo, setChoiceTwo] = useState();
-
     const onChoose = (card) => {
-        if (!choiceOne || !choiceTwo)
-            choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+        dispatch(basicActions.chooseCard(card));
     };
 
     useEffect(() => {
@@ -41,9 +37,7 @@ function Basic() {
         }
     };
     const setupNewTurn = () => {
-        setChoiceOne(null);
-        setChoiceTwo(null);
-        dispatch(basicActions.incTurn());
+        dispatch(basicActions.newTurn());
     };
 
     return (
@@ -53,7 +47,7 @@ function Basic() {
             {cards.length > 0 && (
                 <>
                     <Score />
-                    <div className={`card-table cols-${config.cols}`}>
+                    <div className={`card-table cols-${config.cards.cols}`}>
                         {cards.map((card) => (
                             <Card
                                 key={card.id}

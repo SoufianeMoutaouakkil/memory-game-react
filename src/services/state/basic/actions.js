@@ -1,5 +1,6 @@
 import * as actionsType from "./actionTypes";
 import cardRepo from "../../repository/basic/card";
+import playerRepo from "../../repository/basic/player";
 
 export default {
     setNbPlayers: (nb = 1) => async (dispatch) => {
@@ -20,21 +21,29 @@ export default {
     newGame: (config) => async (dispatch) => {
         console.log("newGame")
         console.log("config", config)
-        const cards = cardRepo.getCards(config);
+        const cards = cardRepo.getCards(config.cards);
+        const players = playerRepo.getPlayers(config.players);
         dispatch({
             type: actionsType.NEW_GAME,
-            payload: {cards, config},
+            payload: {cards, players, config},
         });
     },
-    incTurn: () => async (dispatch) => {
+    newTurn: () => async (dispatch) => {
         dispatch({
-            type: actionsType.INCREMENT_TURN
+            type: actionsType.LAUNCH_NEW_TURN
         });
     },
     incPlayer: (playerID) => async (dispatch) => {
         dispatch({
             type: actionsType.INCREMENT_PLAYER,
             payload: playerID
+        });
+    },
+    chooseCard: (card) => async (dispatch) => {
+        console.log("actions.chooseCard: ", card)
+        dispatch({
+            type: actionsType.CHOOSE_CARD,
+            payload: card
         });
     },
 }

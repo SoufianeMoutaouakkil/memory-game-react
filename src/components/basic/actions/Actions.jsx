@@ -12,10 +12,13 @@ const Actions = () => {
     const cardOptions = getCardOptions();
 
     const handleNewGame = () => {
-        let config = cardOptions.filter(
+        let cardConfig = cardOptions.filter(
             (opt) => opt.value === option
         )[0];
-        dispatch(basicActions.newGame(config));
+        let playerConfig = playerOptions.filter(
+            (playerOption) => playerOption.value === +player
+        )[0];
+        dispatch(basicActions.newGame({cards: cardConfig, players: playerConfig}));
     };
 
     return (

@@ -1,0 +1,27 @@
+.final-score,
+.player-score {
+    margin: 20PX 0;
+    padding: 20px;
+}
+
+.player-score {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.player-score.active {
+    background-color: var(--main-color-light2);
+    border: solid var(--main-color);
+}
+
+.score-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.final-score {
+    font-size: 30px;
+    font-weight: 700;
+}
