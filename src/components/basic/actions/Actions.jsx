@@ -3,7 +3,7 @@ import { getCardOptions, playerOptions } from "../../../config/basic";
 import Select from "./Select";
 import basicActions from "../../../services/state/basic/actions"
 import { useDispatch } from "react-redux";
-
+import "./actions.css";
 
 const Actions = () => {
     const [option, setOption] = useState("3X4");
@@ -22,7 +22,7 @@ const Actions = () => {
     };
 
     return (
-        <>
+        <div className="actions-list">
             <Select data={cardOptions} handler={[option, setOption]} />
             <Select data={playerOptions} handler={[player, setPlayer]} />
             <button
@@ -31,7 +31,7 @@ const Actions = () => {
             >
                 New Game
             </button>
-        </>
+        </div>
     );
 };
 
