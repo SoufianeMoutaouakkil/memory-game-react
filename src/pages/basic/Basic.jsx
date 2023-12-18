@@ -9,7 +9,9 @@ import basicActions from "../../services/state/basic/actions";
 import "./basic.css";
 
 function Basic() {
-    const { cards, config, choiceOne, choiceTwo } = useSelector(state => state.basic);
+    const { cards, config, choiceOne, choiceTwo } = useSelector(
+        (state) => state.basic
+    );
     const dispatch = useDispatch();
 
     const onChoose = (card) => {
@@ -23,7 +25,7 @@ function Basic() {
     }, [choiceOne, choiceTwo]);
 
     useEffect(() => {
-        console.log("useEffect cards in basic : ", cards)
+        console.log("useEffect cards in basic : ", cards);
     }, [cards]);
 
     const handleMatching = () => {
@@ -42,7 +44,10 @@ function Basic() {
 
     return (
         <div className="basic">
-            <h1>Magic Match</h1>
+            <div className="game-title">
+                <h1>SM Games</h1>
+                <h3>Memory game</h3>
+            </div>
             <Actions />
             {cards.length > 0 && (
                 <>

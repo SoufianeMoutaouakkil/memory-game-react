@@ -1,22 +1,29 @@
+.game-title {
+    margin: 40px;
+    /* color: var(--main-color-light2); */
+}
+
 .basic {
-    max-width: 860px;
-    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-basic {
     background: none;
-    border: 2px solid #fff;
+    border: 2px solid var(--main-color-light2);
     padding: 6px 12px;
     border-radius: 4px;
-    color: #fff;
+    color: var(--main-color-light2);
     font-weight: bold;
     cursor: pointer;
     font-size: 1em;
 }
 
 .btn-basic:hover {
-    background: #c23866;
-    color: #fff;
+    background: var(--main-color-light);
+    color: var(--main-color);
 }
 
 .card-table {
@@ -39,4 +46,12 @@
 
 .card-table.cols-5 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.card-table.cols-6 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.card-table.cols-7 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }

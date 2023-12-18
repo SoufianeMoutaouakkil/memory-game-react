@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
 
 :root {
-    --main-color: #2528aa;
-    --main-color-light: #4446a0;
-    --main-color-light2: #8f91dc;
+    --main-color: #232338;
+    --main-color-light: #62629f;
+    --main-color-light2: #a6a6ff;
 }
 
 html,
@@ -23,8 +23,8 @@ body {
     margin: 0;
     font-size: 1.5em;
     text-align: center;
-    background: #1b1523;
-    color: #fff;
+    background: var(--main-color);
+    color: var(--main-color-light2);
 }
 
 .App {
