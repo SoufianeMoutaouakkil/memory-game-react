@@ -1,12 +1,4 @@
 export const cadrList = [
-    { src: "/img/item1.png" },
-    { src: "/img/item2.png" },
-    { src: "/img/item3.png" },
-
-    { src: "/img/item4.png" },
-    { src: "/img/item5.png" },
-    { src: "/img/item6.png" },
-
     { src: "/img/paprika.jpg" },
     { src: "/img/carotte.jpg" },
     { src: "/img/swihla.jpg" },
@@ -18,6 +10,18 @@ export const cadrList = [
     { src: "/img/fraise.jpg" },
     { src: "/img/concumber.jpg" },
     { src: "/img/potatos.jpg" },
+
+    { src: "/img/onion.jpg" },
+    { src: "/img/green-paprika.jpg" },
+    { src: "/img/brokoli.jpg" },
+
+    { src: "/img/coriander.jpg" },
+    { src: "/img/cabbage.jpg" },
+    { src: "/img/garlic.jpg" },
+
+    { src: "/img/green-bean.jpg" },
+    { src: "/img/mint.jpg" },
+    { src: "/img/celery.jpg" },
 ];
 
 export const playerList = [
