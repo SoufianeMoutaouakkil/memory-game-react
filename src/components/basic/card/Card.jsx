@@ -9,7 +9,7 @@ const Card = ({ card, onChoose, flipped }) => {
             </div>
             <div className="back">
                 <img
-                    src="/img/cover.png"
+                    src="/img/cover.jpg"
                     alt="back card"
                     onClick={() => {
                         onChoose(card);
